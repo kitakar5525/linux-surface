@@ -1,0 +1,36 @@
+From aef09e0cd97730de17c48337e8b3312a5c785a9a Mon Sep 17 00:00:00 2001
+From: kitakar5525 <34676735+kitakar5525@users.noreply.github.com>
+Date: Wed, 12 Feb 2020 07:39:52 +0900
+Subject: [PATCH] c13-s2idle-wake-debug
+
+---
+ drivers/base/power/wakeup.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/base/power/wakeup.c b/drivers/base/power/wakeup.c
+index 6ebd248f2644..517cf70c17de 100644
+--- a/drivers/base/power/wakeup.c
++++ b/drivers/base/power/wakeup.c
+@@ -960,11 +960,18 @@ bool pm_wakeup_pending(void)
+ 	return ret || atomic_read(&pm_abort_suspend) > 0;
+ }
+ 
+-void pm_system_wakeup(void)
++void __pm_system_wakeup(void)
+ {
+ 	atomic_inc(&pm_abort_suspend);
+ 	s2idle_wake();
+ }
++
++void pm_system_wakeup(void)
++{
++	__pm_system_wakeup();
++
++	dump_stack();
++}
+ EXPORT_SYMBOL_GPL(pm_system_wakeup);
+ 
+ void pm_system_cancel_wakeup(void)
+-- 
+2.25.0
+

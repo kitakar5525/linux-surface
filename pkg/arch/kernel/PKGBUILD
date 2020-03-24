@@ -28,6 +28,7 @@ source=(
   0005-surface-lte.patch
   0006-wifi.patch
   0007-ipts.patch
+  5525-c13-s2idle-wake-debug.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -43,7 +44,8 @@ sha256sums=('5026c0c4801b7b1dacbfc65ff0f24ffd777707cb365ca843e2fb2a82d59c5d2d'
             '476329b3a82c5ad3c3c944afcbe3653cddc1965e463aee8a79fb6071221da6fc'
             '9cd1f5443f4eaf3c19f5dc53cd8ff86b5f6fe15f5d2c0cfb772d55c09663cb09'
             '203f1642f919f80f7559240681ef887cc2962a98387b964f15e190ac86923c9f'
-            'ad6692cd78e822cebc328598125b1435b711355c4ab9d2872ac31fbf118067d1')
+            'ad6692cd78e822cebc328598125b1435b711355c4ab9d2872ac31fbf118067d1'
+            '1b0ec3c17525b40ca822581b37d3b9d538f38923a30b02ef8e22ba05346db390')
 
 
 export KBUILD_BUILD_HOST=archlinux
